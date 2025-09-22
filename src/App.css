@@ -1,38 +1,201 @@
-.App {
+body {
+  background-image: url('bg.jpg');
+  color: #333;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
   text-align: center;
+  margin-top: 20px;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  color: #00796b;
+  text-shadow: 0 0 6px rgba(0, 121, 107, 0.3);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tagline {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #686262;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  font-style: italic;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.todo-wrapper {
+  background: #ffffff;
+  padding: 2rem;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  transition: 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.todo-input {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+}
+
+.todo-input-item label {
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: #00796b;
+}
+
+.todo-input-item input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  border-radius: 8px;
+  background: #fdfdfd;
+  color: #333;
+}
+
+.todo-input-item input:focus {
+  outline: 2px solid #00796b;
+  background: #f7f7f7;
+}
+
+.primaryBtn {
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  padding: 12px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primaryBtn:hover {
+  background-color: #00695c;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 121, 107, 0.4);
+}
+
+.secondaryBtn {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  margin-top: 25px;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  background: #e0e0e0;
+}
+
+.active {
+  background-color: #00796b;
+  color: white;
+  font-weight: bold;
+}
+
+.todo-list-item {
+  background-color: #fdfdfd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.1),
+              0 0 8px rgba(0, 121, 107, 0.4); /* green glow */
+  border: 1px solid rgba(0, 121, 107, 0.5);   /* subtle green border */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.todo-list-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 6px 12px rgba(0,0,0,0.15),
+              0 0 12px rgba(0, 121, 107, 0.6); /* stronger green glow on hover */
+}
+
+.todo-list-item h3 {
+  font-size: 22px;
+  color: #00796b;
+  font-weight: bold;
+  margin: 0;
+}
+
+.todo-list-item p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 6px;
+}
+
+.icon {
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #d32f2f;
+}
+
+.icon:hover {
+  color: #b71c1c;
+  transform: scale(1.2);
+}
+
+.check-icon {
+  margin-left: 12px;
+  font-size: 22px;
+  color: #00796b;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.check-icon:hover {
+  color: #00695c;
+  transform: scale(1.2);
+}
+
+.edit__wrapper {
+  background-color: #f7f7f7;
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.edit__wrapper input, .edit__wrapper textarea {
+  border: 1px solid #ccc;
+  background: #ffffff;
+  color: #333;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-area {
+  margin-bottom: 25px; /* Increased spacing */
+  display: flex;
+  gap: 0px;
+  border-bottom: 1px solid #ddd; /* 👈 line under buttons */
+  padding-bottom: 20px;  
+}
+
+.edit__wrapper input:focus, .edit__wrapper textarea:focus {
+  outline: 2px solid #00796b;
+}
+
+.edit__wrapper .primaryBtn {
+  margin: 10px auto 0;
+  padding: 10px 20px;
+  font-size: 15px;
 }
